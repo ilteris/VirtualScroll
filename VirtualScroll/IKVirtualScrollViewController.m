@@ -33,7 +33,7 @@ BOOL _transitioning;
 
     
     _currentPage= [[IKViewController alloc] init];
-    _nextPage = [[IKViewController alloc] init];
+    _nextPage =     [[IKViewController alloc] init];
     
     
     [_scrollView addSubview:_currentPage.view];
@@ -69,7 +69,6 @@ BOOL _transitioning;
 - (void)scrollViewDidScroll:(UIScrollView *)sender
 {
 	_transitioning = YES;
-	NSLog(@"scrollViewDidScroll");
 	
 	
     CGFloat pageWidth = self.scrollView.frame.size.width;
@@ -78,6 +77,8 @@ BOOL _transitioning;
 	NSInteger lowerNumber = floor(fractionalPage);
 	NSInteger upperNumber = lowerNumber + 1;
 	
+    
+    
 	if (lowerNumber == _currentPage.pageIndex)
 	{
 		if (upperNumber != _nextPage.pageIndex)
@@ -126,11 +127,10 @@ BOOL _transitioning;
 {
 	
 	_transitioning = NO;
-	NSLog(@"scrollViewDidEndScrollingAnimation");
+//	NSLog(@"scrollViewDidEndScrollingAnimation");
     CGFloat pageWidth = self.scrollView.frame.size.width;
     float fractionalPage = self.scrollView.contentOffset.x / pageWidth;
 	NSInteger nearestNumber = lround(fractionalPage);
-	
 	
 	
 	if (_currentPage.pageIndex != nearestNumber)
@@ -140,6 +140,8 @@ BOOL _transitioning;
 		_nextPage = swapController;
 	}
 	
+    NSLog(@"scrollViewDidEndScrollingAnimation currentPage.pageIndex is %i", _currentPage.pageIndex);
+
 	//[currentPage updateTextViews:YES];
 }
 
@@ -155,11 +157,6 @@ BOOL _transitioning;
 }
 
 
-
-
-
-
-
 - (void)applyNewIndex:(NSInteger)newIndex pageController:(IKViewController *)ikViewController
 {
 	
@@ -167,8 +164,7 @@ BOOL _transitioning;
 	
 	NSInteger pageCount = 10;//[_currentPage numDoses];
 	BOOL outOfBounds = newIndex >= pageCount || newIndex < 0;
-	 NSLog(@"pageCount  %i", pageCount);
-    NSLog(@"outOfBounds  %i", outOfBounds);
+   
 
 	if (!outOfBounds)
 	{
@@ -183,7 +179,6 @@ BOOL _transitioning;
 		pageFrame.origin.y = self.scrollView.frame.size.height;
 		ikViewController.view.frame = pageFrame;
 	}
-	NSLog(@"newIndex is %i", newIndex);
 	
 	ikViewController.pageIndex = newIndex;
 }

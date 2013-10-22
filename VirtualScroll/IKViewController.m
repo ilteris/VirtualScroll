@@ -27,8 +27,11 @@
 
 - (void)setPageIndex:(NSInteger)newPageIndex
 {
-    NSLog(@"newPageIndex is %i", newPageIndex);
-    self.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ATP_C1S%i.png", newPageIndex]];
+    _pageIndex = newPageIndex;
+    
+    // NSLog(@"newPageIndex is %ld", (long)newPageIndex);
+    self.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ATP_C1S%ld.png", (long)newPageIndex]];
+   // NSLog(@"image is %@", [UIImage imageNamed:[NSString stringWithFormat:@"ATP_C1S%ld.png", (long)newPageIndex]]);
 }
 
 
