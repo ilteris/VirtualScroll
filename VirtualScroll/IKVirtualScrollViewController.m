@@ -39,7 +39,7 @@ BOOL _transitioning;
     [_scrollView addSubview:_currentPage.view];
 	[_scrollView addSubview:_nextPage.view];
     
-    NSInteger widthCount = 10;
+    NSInteger widthCount = 4;
 	if (widthCount == 0)
 	{
 		widthCount = 1;
@@ -162,7 +162,7 @@ BOOL _transitioning;
 	
 	
 	
-	NSInteger pageCount = 10;//[_currentPage numDoses];
+	NSInteger pageCount = 4;//[_currentPage numDoses];
 	BOOL outOfBounds = newIndex >= pageCount || newIndex < 0;
    
 
