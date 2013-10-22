@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IKVirtualScrollViewController : UIViewController
+@interface IKVirtualScrollViewController : UIViewController <UIScrollViewDelegate>
 
 @end
