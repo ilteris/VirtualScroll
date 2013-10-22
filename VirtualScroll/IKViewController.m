@@ -25,6 +25,17 @@
     return self;
 }
 
+- (void)setPageIndex:(NSInteger)newPageIndex
+{
+    NSLog(@"newPageIndex is %i", newPageIndex);
+    self.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ATP_C1S%i.png", newPageIndex]];
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

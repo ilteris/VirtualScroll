@@ -122,8 +122,6 @@ BOOL _transitioning;
 
 
 
-
-
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)newScrollView
 {
 	
@@ -169,7 +167,9 @@ BOOL _transitioning;
 	
 	NSInteger pageCount = 10;//[_currentPage numDoses];
 	BOOL outOfBounds = newIndex >= pageCount || newIndex < 0;
-	
+	 NSLog(@"pageCount  %i", pageCount);
+    NSLog(@"outOfBounds  %i", outOfBounds);
+
 	if (!outOfBounds)
 	{
 		CGRect pageFrame = ikViewController.view.frame;
