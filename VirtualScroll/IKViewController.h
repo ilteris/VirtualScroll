@@ -10,4 +10,11 @@
 
 @interface IKViewController : UIViewController
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic, assign) NSInteger pageIndex;
+@property (nonatomic, assign) NSInteger chapterIndex;
+
+
+
 @end

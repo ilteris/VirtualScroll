@@ -7,6 +7,7 @@
 //
 
 #import "IKVirtualScrollViewController.h"
+#import "IKViewController.h"
 
 @interface IKVirtualScrollViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -15,9 +16,20 @@
 
 @implementation IKVirtualScrollViewController
 
+
+IKViewController *_currentPage;
+IKViewController *_nextPage;
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _currentPage= [[IKViewController alloc] init];
+    _nextPage = [[IKViewController alloc] init];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
